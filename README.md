@@ -2,23 +2,29 @@
 
 Let's delve into a more advanced scenario where we'll use Blazor to create a real-time data visualization component.
 
-Example: Real-time Stock Price Chart
+**Example: Real-time Stock Price Chart**
 
-Features Demonstrated:
+**Features Demonstrated**:
 
-Timers: Updating data and UI at regular intervals.
-External Data Sources: Fetching data from an API or a simulated stock ticker.
-Data Visualization: (Optional) Using a charting library to render an interactive chart.
-Blazor Lifecycle Methods: Managing component updates and cleanup.
-Setup
+**Timers**: Updating data and UI at regular intervals
 
-Project: Create a new Blazor Server project (or reuse an existing one). You can name it "RealtimeCharts".
-Optional Charting Library: If you want a fully-featured chart, explore integrating a JavaScript charting library like Chart.js (Refer to the earlier "Interactive Chart" example for guidance)
-Models
+**External Data Sources**: Fetching data from an API or a simulated stock ticker
 
-StockData.cs: (Inside a Models folder)
+**Data Visualization**: (Optional) Using a charting library to render an interactive chart
 
-C#
+**Blazor Lifecycle Methods**: Managing component updates and cleanup
+
+**Setup**
+
+**Project**: Create a new Blazor Server project (or reuse an existing one). You can name it "RealtimeCharts"
+
+**Optional Charting Library**: If you want a fully-featured chart, explore integrating a JavaScript charting library like Chart.js (Refer to the earlier "Interactive Chart" example for guidance)
+
+**Models**
+
+**StockData.cs**: (Inside a Models folder)
+
+```csharp
 namespace RealtimeCharts.Models;
 
 public class StockData
@@ -27,12 +33,13 @@ public class StockData
     public decimal Price { get; set; }
     public DateTime Timestamp { get; set; }
 }
-Usa el código con precaución.
-Services (Optional)
+```
 
-StockTickerService.cs (Inside a Services folder - for simulation)
+**Services (Optional)**
 
-C#
+**StockTickerService.cs (Inside a Services folder - for simulation)**
+
+```csharp
 namespace RealtimeCharts.Services;
 
 public class StockTickerService
@@ -69,12 +76,13 @@ public class StockTickerService
         OnDataUpdate?.Invoke(); 
     }
 }
-Usa el código con precaución.
-Components
+```
 
-StockChart.razor
+**Components**
 
-Razor CSHTML
+**StockChart.razor**
+
+```cshtml
 @inject StockTickerService TickerService  
 @implements IDisposable
 
@@ -110,5 +118,5 @@ Razor CSHTML
         return (int)(price * 5); 
     }        
 }
-Usa el código con precaución.
+```
 
